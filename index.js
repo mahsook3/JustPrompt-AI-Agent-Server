@@ -1,10 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const compileCode = require("./compiler");
-const { searchQuestions } = require('./stackoverflow');
-const generateCode = require("./aicodegenerator");
-const debugCode = require("./debug");
-const ultraDebug = require("./ultradebug");
+const compileCode = require("./models/compiler");
+const { searchQuestions } = require('./models/stackoverflow');
+const generateCode = require("./models/aicodegenerator");
+const debugCode = require("./models/debug");
+const ultraDebug = require("./models/ultradebug");
 
 const app = express();
 const PORT = 8000;
