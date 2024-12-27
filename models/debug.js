@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const cors = require("cors");
 require('dotenv').config();
 
 const app = express();
@@ -9,14 +8,12 @@ const port = 5000;
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
-app.use(cors());
 app.use(bodyParser.json());
 
 const debugCode = async (req, res) => {
-    const { input, output, expectedOutput, code } = req.body;
-    console.log(input, output, expectedOutput, code);
+    const { input, output, expectedOutput, code,summary } = req.body;
 
-    const prompt = `Here is a piece of code:\n${code}\n\nIt takes the following input: ${input}\nAnd produces the following output: ${output}\n\nThe expected output should be: ${expectedOutput}\n\nPlease provide the changes needed to achieve the expected output as short paragraph and the updated code.Note:write full code`;
+    const prompt = `Here is a piece of code:\n${code} It takes the following input: ${input} And produces the following output: ${output} The expected output should be: ${expectedOutput} also you can refer bellow reference ${summary} Please provide the changes needed to achieve the expected output as short paragraph and the updated code.Note:write full code`;
 
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });

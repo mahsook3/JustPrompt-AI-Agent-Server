@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const compileCode = require("./models/compiler");
 const { searchQuestions } = require('./models/stackoverflow');
 const generateCode = require("./models/aicodegenerator");
@@ -7,9 +6,7 @@ const debugCode = require("./models/debug");
 const ultraDebug = require("./models/ultradebug");
 
 const app = express();
-const PORT = 8000;
-
-app.use(cors());
+const PORT = process.env.X_ZOHO_CATALYST_LISTEN_PORT || 8000;
 app.use(express.json());
 
 app.post("/compile", compileCode);

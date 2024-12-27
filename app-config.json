@@ -1,0 +1,8 @@
+{
+	"command": "node index.js",
+	"build_path": "E:\\justprompt\\server",
+	"stack": "node20",
+	"env_variables": {},
+	"memory": 256,
+	"scripts": {}
+}

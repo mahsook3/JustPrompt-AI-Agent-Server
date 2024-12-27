@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const OpenAI = require("openai");
-const cors = require("cors");
 require('dotenv').config();
 
 const app = express();
@@ -12,7 +11,6 @@ const openai = new OpenAI({
   baseURL: 'https://integrate.api.nvidia.com/v1',
 });
 
-app.use(cors());
 app.use(bodyParser.json());
 
 const generateCode = async (req, res) => {

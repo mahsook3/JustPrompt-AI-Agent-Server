@@ -1,0 +1,12 @@
+{
+  "appsail": [
+    {
+      "source": "E:\\justprompt\\server",
+      "name": "justprompt-ai-agent"
+    },
+    {
+      "source": "E:\\justprompt\\server",
+      "name": "justpromptaiagent"
+    }
+  ]
+}

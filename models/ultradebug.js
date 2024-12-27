@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const cors = require("cors");
 require('dotenv').config();
 const { searchQuestions } = require('./stackoverflow');
 
@@ -10,7 +9,6 @@ const port = 6060;
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
-app.use(cors());
 app.use(bodyParser.json());
 
 const ultraDebug = async (req, res) => {
